@@ -27,8 +27,11 @@ class baseview(grok.View):
         
     @property
     def PerPagePrdtNum(self):
-        return self.context.PerPagePrdtNum      
-
+        return self.context.PerPagePrdtNum  
+        
+    @property
+    def PerRowPrdtNum(self):
+        return self.context.PerRowPrdtNum  
     @memoize
     def prdt_images(self):
         context = aq_inner(self.context)
@@ -136,6 +139,14 @@ class baseview(grok.View):
         else:
             return c    
 
+
+class mediapageview(baseview):
+    grok.context(Iproductfolder)
+    grok.require('zope2.View')
+    grok.name('mediapageview') 
+        
+
+    
 class storeview(baseview):
     grok.context(Iproductfolder)
     grok.require('zope2.View')

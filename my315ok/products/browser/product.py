@@ -23,18 +23,20 @@ class view(grok.View):
 #brain come from contained image field 's object
     def isImageAvalable(self,brain=None):
         """判断图片字段是否有效"""
+
+        if brain is None:
+                obj = self.context
+        else:
+                obj = brain.getObject()
+
         try:
-            if brain is None:
-                image = self.context.image.size
-            else:
-                 image = brain.getObject().image.size
-                 
-            return (image != 0)
-#                return True
-#            else:
-#                return False
+                size = obj.image.size
         except:
-            return False
+                size = obj.image.getSize()                 
+
+                 
+        return (size != 0)
+
         
     def transfer2text(self,obj):
 #        import pdb
@@ -56,7 +58,7 @@ class view(grok.View):
 
 
     def img_large_link(self,fieldname="image",large="large"):
-        link = self.img_url() + "/" + fieldname + "_" + large
+        link = self.img_url() + "/@@images/" + fieldname + "/" + large
         return link
     def img_url(self):
         return self.context.absolute_url()        

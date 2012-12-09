@@ -19,9 +19,11 @@
     <tal:main-macro metal:define-macro="content-core">
    	
        <div class="prducts">
-		     <div class="mainphoto"
-             tal:condition="python:view.isImageAvalable()">        
+		     <div class="mainphoto newsImageContainer"
+             tal:condition="python:view.isImageAvalable()">
+             <a href="#" title="product title" tal:attributes="href python:view.img_large_link();title python:context.Title();">        
                	<img tal:replace="structure python:view.img_tag(scale='mini',fieldname='image')" />
+             </a>
            </div>
  
 	        <div class="details" 

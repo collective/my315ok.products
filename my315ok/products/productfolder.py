@@ -37,7 +37,15 @@ class Iproductfolder(form.Schema, IImageScaleTraversable):
         title=_(u"the number that will be displayed on one page"),
         description=_(u"the number that will be displayed on one page"),
         default=6,
+    )
+    PerRowPrdtNum = schema.Int(
+        title=_(u"product numbers will be display in a row(default 4)"),
+        description=(u"here you can set every row display product numbers"),
+        default=4,
     )    
+    
+
+        
 #    form.model("models/productfolder.xml")
 
 

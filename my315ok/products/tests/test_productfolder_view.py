@@ -63,6 +63,28 @@ class TestHotelFolderView(unittest.TestCase):
 
         self.assertTrue('<div id="multiproducts">' in browser.contents)
         
+    def test_mediapageview(self):
+
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+
+        
+        import transaction
+        transaction.commit()
+        
+        page = portal.absolute_url() + '/productfolder1/@@mediapageview'
+
+        browser.open(page)
+        obj = portal.absolute_url() + '/productfolder1/product1'    
+        open('/tmp/test.html', 'w').write(browser.contents)
+        outstr = '<a href="%s/@@images/image/large" class="overlay">'  % obj
+
+        self.assertTrue(outstr in browser.contents)
+        
     def test_barsview(self):
 
         app = self.layer['app']
@@ -123,7 +145,7 @@ class TestHotelFolderView(unittest.TestCase):
         lookstr3 = '<div class="banner"><a href="%s"><img src="%s" alt="%s" /></a></div>' % (url3,isrc3,title3)                
 #        import pdb
 #        pdb.set_trace()
-#        open('/tmp/test.html', 'w').write(browser.contents)
+
 
         self.assertTrue(lookstr1 in browser.contents)  
         self.assertTrue(lookstr2 in browser.contents) 
