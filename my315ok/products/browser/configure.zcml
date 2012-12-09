@@ -3,22 +3,5 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="my315ok.products">
 
-    <include package="plone.app.contentmenu" />
 
-    <!-- display menu -->
-
-    <browser:menuItem
-        for="my315ok.products.productfolder.Iproductfolder"
-        menu="plone_displayviews"
-        title="meida page view"
-        action="@@mediapageview"
-        description="mediapage view"
-    />
-    <browser:menuItem
-        for="my315ok.products.productfolder.Iproductfolder"
-        menu="plone_displayviews"
-        title="products view"
-        action="@@view"
-        description="products view"
-    />
 </configure>

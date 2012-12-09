@@ -32,6 +32,8 @@
   <property name="view_methods">
    <element value="view"/>
    <element value="mediapageview"/>
+   <element value="storeview"/>    
+   <element value="barsview"/>  
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>

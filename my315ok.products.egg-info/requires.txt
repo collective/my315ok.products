@@ -1,0 +1,22 @@
+setuptools
+five.globalrequest
+five.grok
+BeautifulSoup
+plone.namedfile [blobs]
+Products.CMFPlone
+plone.app.registry
+plone.app.textfield
+plone.app.dexterity [grok]
+z3c.caching
+plone.behavior
+plone.directives.form
+zope.schema
+zope.interface
+zope.component
+rwproperty
+z3c.caching
+plone.multilingualbehavior
+plone.multilingual
+
+[test]
+plone.app.testing

@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: my315ok.products
+Version: 4.0
+Summary: A product showing system based dexterity
+Home-page: https://github.com/collective/my315ok.products.git
+Author: Adam tang
+Author-email: yuejun.tang@gmail.com
+License: GPL
+Description: Introduction
+        ============
+        
+        
+        
+        This product may contain traces of nuts.
+        
+        Changelog
+        =========
+        
+        4.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Keywords: python plone
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
