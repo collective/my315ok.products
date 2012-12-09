@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="my315ok.products">
+<head>
+    <metal:block fill-slot="style_slot">
+        <link rel="stylesheet" type="text/css" 
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++my315ok.products/multiproducts.css"
+            />
+        <link rel="stylesheet" type="text/css" href="http://images.315ok.org/jquery.lightbox-0.5.css" media="screen" />           
+    </metal:block>
+</head>      
+<body>
+
+<metal:main fill-slot="content-core">
+    <tal:main-macro metal:define-macro="content-core"
+        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;plone_state context/@@plone_portal_state;
+                                                                              portal python:plone_state.portal()">
+		 <div tal:define="imglists python:view.mainimage(fieldname='image');loop python:imglists['preview'];
+		                  Batch python:modules['Products.CMFPlone'].Batch;
+                        b_size python:view.PerPagePrdtNum;
+                        row_cols python:view.PerRowPrdtNum |4;
+                        spannum python:12/row_cols;
+		                  b_start python:0;
+                        b_start request/b_start | b_start;" tal:omit-tag="" tal:condition="python: len(imglists)">
+		 <div tal:define="batch python:Batch(loop,b_size, int(b_start), orphan=1); p_size python:len(batch)">
+		 <div metal:use-macro="context/batch_macros/macros/navigation" />		 
+        <div id="multiproducts">
+
+          <div class="row-fluid" tal:repeat = "rows python:range(int((p_size + row_cols - 1)/row_cols))" >
+           <div class="span2" tal:attributes="class python:'span' + str(spannum)" tal:repeat ="tds  python:range(row_cols)" > 
+            <div tal:define="s   python:int((rows)*row_cols + tds);                         
+                          cont python:(s < p_size)" 
+                tal:condition="cont" tal:omit-tag="">
+
+		        <h2 class="title">
+		        	<a tal:content="python: imglists['title'][s]" tal:attributes="href python:imglists['imgurl'][s]">title</a>
+              </h2>					 
+              <div class="mainphoto grid_3" tal:condition="exists:python:imglists['large'][s]">
+              <a href="#" class="lightbox" tal:attributes="href python:imglists['large'][s]" tal:content="structure python:imglists['preview'][s]"></a>
+              </div>	       
+
+          </div>                    
+         </div>  
+        
+		     </div> <!-- end of tal:define-->
+		 </div><!--end of multiproducts -->
+		   <div metal:use-macro="context/batch_macros/macros/navigation" />
+	   
+		 </div><!--end of define batch -->
+		</div>
+    </tal:main-macro>
+</metal:main>
+<metal:js fill-slot="javascript_bottom_slot">
+			   <script type="text/javascript" tal:attributes="src string:http://images.315ok.org/jquery.lightbox-0.5.pack.js" />
+<script type="text/javascript">
+jq(function() {
+	jq('a.lightbox').lightBox(); // Select all links with lightbox class
+});
+</script>	
+</metal:js>
+</body>
+</html>
