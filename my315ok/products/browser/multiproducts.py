@@ -164,7 +164,7 @@ class mediapageview(baseview):
         rowstr = '<div class="row-fluid">'
         colsnum = self.PerRowPrdtNum
         imglists = self.mainimage()
-        total = len(imglists)
+        total = len(imglists['title'])
         span_num = self.span_num()
         rowsnum = (total + colsnum - 1)/colsnum
 #        import pdb 
@@ -173,8 +173,8 @@ class mediapageview(baseview):
             output = output + rowstr
             for j in range(colsnum):
                 s = i * colsnum + j
-                import pdb
-                pdb.set_trace()
+#                import pdb
+#                pdb.set_trace()
                 if s == total:
                     break
                 output = output + '<div class="%s"><h2 class="title"><a title="%s" href="%s">%s</a></h2><div class="mainphoto grid_3"><a href="%s" class="lightbox">%s</a></div></div>' \
