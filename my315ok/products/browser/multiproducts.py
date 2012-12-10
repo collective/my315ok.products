@@ -31,7 +31,13 @@ class baseview(grok.View):
         
     @property
     def PerRowPrdtNum(self):
-        return self.context.PerRowPrdtNum  
+        return self.context.PerRowPrdtNum 
+    
+    def span_num(self):
+#        import pdb
+#        pdb.set_trace()
+        return "span" + str(12/self.PerRowPrdtNum)
+         
     @memoize
     def prdt_images(self):
         context = aq_inner(self.context)
@@ -143,7 +149,38 @@ class baseview(grok.View):
 class mediapageview(baseview):
     grok.context(Iproductfolder)
     grok.require('zope2.View')
-    grok.name('mediapageview') 
+    grok.name('mediapageview')
+    
+    def outtable(self):
+        out = """
+            <div class="row-fluid">
+            <div class="span2"> 
+            <h2 class="title"><a href="%s">%s</a></h2>                     
+            <div class="mainphoto grid_3"><a href="%s" class="lightbox">%s</a></div>
+             </div>
+             </div>
+             """
+        output = ''
+        rowstr = '<div class="row-fluid">'
+        colsnum = self.PerRowPrdtNum
+        imglists = self.mainimage()
+        total = len(imglists)
+        span_num = self.span_num()
+        rowsnum = (total + colsnum - 1)/colsnum
+#        import pdb 
+#        pdb.set_trace()
+        for i in range(rowsnum):
+            output = output + rowstr
+            for j in range(colsnum):
+                s= i * colsnum + j
+                if s == total:
+                    break
+                output = output + '<div class="%s"><h2 class="title"><a title="%s" href="%s">%s</a></h2><div class="mainphoto grid_3"><a href="%s" class="lightbox">%s</a></div></div>' \
+                %(span_num,imglists['title'][s],imglists['imgurl'][s],imglists['title'][s],imglists['large'][s],imglists['preview'][s])
+            output = output + '</div>'
+            
+        return output
+
         
 
     
