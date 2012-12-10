@@ -25,11 +25,13 @@ class TestHotelFolderView(unittest.TestCase):
         setRoles(portal, TEST_USER_ID, ('Manager',))
 
         portal.invokeFactory('my315ok.products.productfolder', 'productfolder1',
-                             PerPagePrdtNum=2,title="productfolder1",description="demo productfolder")     
+                             PerPagePrdtNum=5,PerRowPrdtNum=3,title="productfolder1",description="demo productfolder")     
      
         portal['productfolder1'].invokeFactory('my315ok.products.product','product1',title="Gif image",description="a gif image")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product2',title="Jpeg image",description="a jpeg image")
-        portal['productfolder1'].invokeFactory('my315ok.products.product','product3',title="Png image",description="a png image")        
+        portal['productfolder1'].invokeFactory('my315ok.products.product','product3',title="Png image",description="a png image")   
+        portal['productfolder1'].invokeFactory('my315ok.products.product','product4',title="Jpeg image2",description="a jpeg image2")
+        portal['productfolder1'].invokeFactory('my315ok.products.product','product5',title="Png image2",description="a png image2")               
 
         data = getFile('image.gif').read()
         item = portal['productfolder1']['product1']
@@ -39,7 +41,11 @@ class TestHotelFolderView(unittest.TestCase):
         item2.image = NamedImage(data2, 'image/jpeg', u'image.jpg')  
         data3 = getFile('image.png').read()        
         item3 = portal['productfolder1']['product3']
-        item3.image = NamedImage(data3, 'image/png', u'image.png')                
+        item3.image = NamedImage(data3, 'image/png', u'image.png') 
+        item4 = portal['productfolder1']['product4']
+        item4.image = NamedImage(data3, 'image/png', u'image.png')  
+        item5 = portal['productfolder1']['product5']
+        item5.image = NamedImage(data3, 'image/png', u'image.png')                                 
         self.portal = portal                
         
     def test_view(self):
@@ -81,7 +87,7 @@ class TestHotelFolderView(unittest.TestCase):
         browser.open(page)
         obj = portal.absolute_url() + '/productfolder1/product1'    
         open('/tmp/test.html', 'w').write(browser.contents)
-        outstr = '<a href="%s/@@images/image/large" class="overlay">'  % obj
+        outstr = '<a href="%s/@@images/image/large" class="lightbox">'  % obj
 
         self.assertTrue(outstr in browser.contents)
         
