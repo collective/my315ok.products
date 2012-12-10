@@ -173,6 +173,8 @@ class mediapageview(baseview):
             output = output + rowstr
             for j in range(colsnum):
                 s = i * colsnum + j
+                import pdb
+                pdb.set_trace()
                 if s == total:
                     break
                 output = output + '<div class="%s"><h2 class="title"><a title="%s" href="%s">%s</a></h2><div class="mainphoto grid_3"><a href="%s" class="lightbox">%s</a></div></div>' \
