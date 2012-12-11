@@ -38,7 +38,7 @@ jq(function() {
 {
 	overlayBgColor: '#FFF',
 	overlayOpacity: 0.6,
-	imageLoading: 'http://images.aa12345.com/images/lightbox-btn-loading.gif',
+	imageLoading: 'http://images.aa12345.com/images/lightbox-ico-loading.gif',
 	imageBtnClose: 'http://images.aa12345.com/images/lightbox-btn-close.gif',
 	imageBtnPrev: 'http://images.aa12345.com/images/lightbox-btn-prev.gif',
 	imageBtnNext: 'http://images.aa12345.com/images/lightbox-btn-next.gif',
