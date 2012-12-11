@@ -34,7 +34,17 @@
 			   <script type="text/javascript" tal:attributes="src string:http://images.315ok.org/jquery.lightbox-0.5.pack.js" />
 <script type="text/javascript">
 jq(function() {
-	jq('a.lightbox').lightBox(); // Select all links with lightbox class
+	jq('a.lightbox').lightBox(
+{
+	overlayBgColor: '#FFF',
+	overlayOpacity: 0.6,
+	imageLoading: 'http://images.aa12345.com/images/loading.gif',
+	imageBtnClose: 'http://images.aa12345.com/images/close.gif',
+	imageBtnPrev: 'http://images.aa12345.com/images/prev.gif',
+	imageBtnNext: 'http://images.aa12345.com/images/next.gif',
+	containerResizeSpeed: 350
+   }	
+	); 
 });
 </script>	
 </metal:js>
