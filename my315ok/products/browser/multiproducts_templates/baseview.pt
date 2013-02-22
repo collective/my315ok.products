@@ -57,7 +57,7 @@
 </metal:main>
 <metal:js fill-slot="javascript_bottom_slot">
 			<script type="text/javascript" src="test.js" 
-    tal:attributes="src string:http://images.aa12345.com/jqzoom.pack.1.0.1.js"></script>
+    tal:attributes="src string:http://images.315ok.org/jqzoom.pack.1.0.1.js"></script>
 		   <script type="text/javascript">
         jq(document).ready(function(){
 	         var options3 =

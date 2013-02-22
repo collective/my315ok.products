@@ -2,7 +2,8 @@ import unittest2 as unittest
 
 from my315ok.products.testing import MY315OK_PRODUCTS_INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID, setRoles
-#TEST_USER_ID = "tang.yuejun"
+from plone.namedfile.file import NamedImage
+
 class Allcontents(unittest.TestCase):
     layer = MY315OK_PRODUCTS_INTEGRATION_TESTING
     

@@ -9,7 +9,7 @@
     </dt>
     <dd>
 <script type="text/javascript" src="test.js" 
-    tal:attributes="src string:http://images.aa12345.com/imgPlayer.js"></script>     	
+    tal:attributes="src string:http://images.315ok.org/imgPlayer.js"></script>     	
 		<div id="topid" class="txtBanner noMarginTop" tal:attributes="id view/data/topid">
 		<div id="TopAD" class="slideBanner" style="height: 180px;" tal:attributes="style python: view.top_css();id view/data/outerid">
 			<ul class="img"></ul>
