@@ -225,12 +225,12 @@ class barsview(baseview):
                 for i in range(lenth):
                     headstr = headstr + '<link url="%s" /><title text="%s"> </title>' % (items['url'][i],items['titl'][i])
                     bodystr = bodystr + '<div class="banner"><a href="%s"><img src="%s" alt="%s" />%s</a></div>' \
-                    % (items['url'][i],items['src'][i],items['titl'][i],items['txt'][i])                
+                    % (items['link'][i],items['src'][i],items['titl'][i],items['txt'][i])                
             else:
                 for i in range(lenth):
                     headstr = headstr + '<link url="%s" /><title text="%s"> </title>' % (items['url'][i],items['titl'][i])
                     bodystr = bodystr + '<div class="banner"><a href="%s"><img src="%s" alt="%s" /></a></div>' \
-                    % (items['url'][i],items['src'][i],items['titl'][i])                
+                    % (items['link'][i],items['src'][i],items['titl'][i])                
         except:
             pass
         bars = {}
@@ -245,9 +245,9 @@ class barsview(baseview):
         items = {}
         items['titl'] = []
         items['url'] = []
+        items['link'] = []        
         items['src'] = []
-        items['txt'] = []
-     
+        items['txt'] = []     
         
         if scale == "orig":
             for bn in brains:
@@ -256,11 +256,12 @@ class barsview(baseview):
                     link2 = bn.linkurl
                 except:
                     link2 = ""
-                if link2 != "": base = link2                
+                if link2 == "":  link2 = base                
                 items['titl'].append(bn.Title)
                 dsp = self.splittxt(bn.Description, tab)
                 items['txt'].append(dsp)
                 items['url'].append(base)
+                items['link'].append(link2)  
                 items['src'].append(base + "/@@images/" + fieldname)          
             return items
         else:            
@@ -270,11 +271,12 @@ class barsview(baseview):
                     link2 = bn.linkurl
                 except:
                     link2 = ""
-                if link2 != "": base = link2                
+                if link2 == "":  link2 = base                
                 items['titl'].append(bn.Title)
                 dsp = self.splittxt(bn.Description, tab)
                 items['txt'].append(dsp)
                 items['url'].append(base)
+                items['link'].append(link2)                
                 items['src'].append(base + "/@@images/" + fieldname + "/" + scale)        
             return items
 
