@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-21 07:04+0000\n"
+"POT-Creation-Date: 2013-02-25 11:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 
 #: ./profiles/default/types/my315ok.products.productfolder.xml
 msgid "A container that contain multiple products"
+msgstr ""
+
+# zcml
+msgid "A product showing system based dexterity"
 msgstr ""
 
 #: ./interfaces.py:14
@@ -57,7 +61,7 @@ msgstr ""
 msgid "Specify the maximum number(ms) of slide image change."
 msgstr ""
 
-#: ./product.py:52
+#: ./product.py:53
 msgid "a main image of the product"
 msgstr ""
 
@@ -92,7 +96,7 @@ msgstr ""
 msgid "details description"
 msgstr ""
 
-#: ./product.py:56
+#: ./product.py:60
 msgid "details spec of the product"
 msgstr ""
 
@@ -114,16 +118,20 @@ msgstr ""
 msgid "image size"
 msgstr ""
 
+#: ./portlets/slidebar_portlet.py:67
+msgid "images bar's innerlocated CSS id"
+msgstr ""
+
 #: ./portlets/slidebar_portlet.py:63
 msgid "images bar's located CSS id"
 msgstr ""
 
-#: ./portlets/slidebar_portlet.py:67
-msgid "images bar's top located CSS id"
-msgstr ""
-
 #: ./portlets/vocabularies.py:10
 msgid "large image"
+msgstr ""
+
+#: ./product.py:56
+msgid "link to target URI"
 msgstr ""
 
 #: ./behaviors/goods.py:21
@@ -174,8 +182,12 @@ msgstr ""
 msgid "product"
 msgstr ""
 
-#: ./product.py:51
+#: ./product.py:52
 msgid "product image"
+msgstr ""
+
+#: ./productfolder.py:42
+msgid "product numbers will be display in a row(default 4)"
 msgstr ""
 
 #: ./profiles/default/types/my315ok.products.productfolder.xml
@@ -210,7 +222,7 @@ msgid "the URI of the resouce images view"
 msgstr ""
 
 #: ./portlets/slidebar_portlet.py:64
-msgid "the images bar's position will put"
+msgid "the images bar's outer position will put"
 msgstr ""
 
 #: ./portlets/slidebar_portlet.py:68

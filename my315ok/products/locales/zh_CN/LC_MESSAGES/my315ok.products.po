@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
-"POT-Creation-Date: 2012-09-21 07:04+0000\n"
-"PO-Revision-Date: 2012-09-23 21:26+0800\n"
+"POT-Creation-Date: 2013-02-25 11:03+0000\n"
+"PO-Revision-Date: 2013-02-25 19:07+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,10 @@ msgstr ""
 #: ./profiles/default/types/my315ok.products.productfolder.xml
 msgid "A container that contain multiple products"
 msgstr "产品文件夹"
+
+# zcml
+msgid "A product showing system based dexterity"
+msgstr "一个基于dexterity的产品显示系统"
 
 #: ./interfaces.py:14
 msgid "Allowable max number for product overview"
@@ -58,7 +62,7 @@ msgstr "指定图片轮换条面板的高度"
 msgid "Specify the maximum number(ms) of slide image change."
 msgstr "图片轮换的间隔时间"
 
-#: ./product.py:52
+#: ./product.py:53
 msgid "a main image of the product"
 msgstr "产品的主图片"
 
@@ -93,7 +97,7 @@ msgstr "现金礼券"
 msgid "details description"
 msgstr "商品详细描述"
 
-#: ./product.py:56
+#: ./product.py:60
 msgid "details spec of the product"
 msgstr "产品详细描述"
 
@@ -115,17 +119,21 @@ msgstr "商品型号"
 msgid "image size"
 msgstr "图片大小"
 
+#: ./portlets/slidebar_portlet.py:67
+msgid "images bar's innerlocated CSS id"
+msgstr "内层图片CSS定位id"
+
 #: ./portlets/slidebar_portlet.py:63
 msgid "images bar's located CSS id"
 msgstr "外层定位图片条的css id"
 
-#: ./portlets/slidebar_portlet.py:67
-msgid "images bar's top located CSS id"
-msgstr "内层定于图片条的CSS ID"
-
 #: ./portlets/vocabularies.py:10
 msgid "large image"
 msgstr "大图"
+
+#: ./product.py:56
+msgid "link to target URI"
+msgstr "链接到的目标URL"
 
 #: ./behaviors/goods.py:21
 msgid "market price"
@@ -175,9 +183,13 @@ msgstr "预览图片"
 msgid "product"
 msgstr "产品"
 
-#: ./product.py:51
+#: ./product.py:52
 msgid "product image"
 msgstr "产品图片"
+
+#: ./productfolder.py:42
+msgid "product numbers will be display in a row(default 4)"
+msgstr "在一行内显示的产品数（缺省4个）"
 
 #: ./profiles/default/types/my315ok.products.productfolder.xml
 msgid "productfolder"
@@ -211,8 +223,8 @@ msgid "the URI of the resouce images view"
 msgstr "资源图片视图的URL"
 
 #: ./portlets/slidebar_portlet.py:64
-msgid "the images bar's position will put"
-msgstr "轮换图片将放置的外层位置"
+msgid "the images bar's outer position will put"
+msgstr "图片轮换框的CSS定位ID"
 
 #: ./portlets/slidebar_portlet.py:68
 msgid "the images bar's top position will put"

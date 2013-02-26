@@ -38,7 +38,9 @@ class TestPortlet(unittest.TestCase):
         portal.invokeFactory('my315ok.products.productfolder', 'productfolder1',
                              PerPagePrdtNum=2,title="productfolder1",description="demo productfolder")     
      
-        portal['productfolder1'].invokeFactory('my315ok.products.product','product1',title="Gif image",description="a gif image")
+        portal['productfolder1'].invokeFactory('my315ok.products.product','product1',title="Gif image",
+                                               linkurl="http://315ok.org/",
+                                               description="a gif image")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product2',title="Jpeg image",description="a jpeg image")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product3',title="Png image",description="a png image")        
 
@@ -109,7 +111,9 @@ class TestRenderer(unittest.TestCase):
         portal.invokeFactory('my315ok.products.productfolder', 'productfolder1',
                              PerPagePrdtNum=2,title="productfolder1",description="demo productfolder")     
      
-        portal['productfolder1'].invokeFactory('my315ok.products.product','product1',title="Gif image",description="a gif image")
+        portal['productfolder1'].invokeFactory('my315ok.products.product','product1',title="Gif image",
+                                               linkurl="http://315ok.org/",                                               
+                                               description="a gif image")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product2',title="Jpeg image",description="a jpeg image")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product3',title="Png image",description="a png image")        
 

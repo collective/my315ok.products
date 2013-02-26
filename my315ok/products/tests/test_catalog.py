@@ -29,7 +29,9 @@ class CatalogSetupTest(unittest.TestCase):
 
         portal.invokeFactory('my315ok.products.productfolder', 'productfolder1')
         
-        portal['productfolder1'].invokeFactory('my315ok.products.product','product1',text="rich text1")
+        portal['productfolder1'].invokeFactory('my315ok.products.product','product1',
+                                               linkurl="http://315ok.org/",
+                                               text="rich text1")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product2',text="rich text2")
         portal['productfolder1'].invokeFactory('my315ok.products.product','product3',text="rich text3")
 
@@ -38,18 +40,25 @@ class CatalogSetupTest(unittest.TestCase):
     def test_catalog_installed(self):
         self.assertTrue('text' in
                         self.portal.portal_catalog.indexes())
+        self.assertTrue('linkurl' in
+                        self.portal.portal_catalog.indexes())           
 
     def test_conversation_total_comments(self):
         self.assertTrue(isinstance(catalog.text,
                                 DelegatingIndexerFactory))
+        self.assertTrue(isinstance(catalog.linkurl,
+                                DelegatingIndexerFactory))        
         p1 = self.portal['productfolder1']['product1']
         self.assertEqual(catalog.text(p1)(), "rich text1")
+        self.assertEqual(catalog.linkurl(p1)(), "http://315ok.org/")        
 
     def test_catalogsearch(self):   
         catalog2 = getToolByName(self.portal, 'portal_catalog')     
 
         results2 = list(catalog2({'text': "rich text1"}))
         self.assertEqual(len(results2), 1)
+        results2 = list(catalog2({'linkurl': "http://315ok.org/"}))
+        self.assertEqual(len(results2), 1)        
          
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)

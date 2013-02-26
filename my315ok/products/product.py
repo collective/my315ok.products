@@ -53,6 +53,9 @@ class Iproduct(form.Schema, IImageScaleTraversable):
         description=_(u"a main image of the product"),
         required=False,        
     )    
+    linkurl = schema.TextLine(title=_(u"link to target URI"),
+                             default=u"",
+                             required=False,)    
     text = RichText(
             title=_(u"details spec of the product"),
             required=True,
@@ -71,7 +74,20 @@ class product(dexterity.Item):
     
     # Add your class methods and properties here
 
+@indexer(Iproduct)
+def linkurl(context):
+    """Create a catalogue indexer, registered as an adapter, which can
+    populate the ``content`` index with the linkutrl .
+    """
+    pview = context.restrictedTraverse('@@plone')
 
+    try:
+        url = context.linkurl
+    except:
+        url = context.absolute_url()
+        
+    if url == None or "":return ""
+    return url
 
 @indexer(Iproduct)
 def text(context):

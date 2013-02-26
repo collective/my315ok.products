@@ -247,10 +247,16 @@ class barsview(baseview):
         items['url'] = []
         items['src'] = []
         items['txt'] = []
-#                    base =  objurl + "/@@images/" + fieldname + "/"        
+     
+        
         if scale == "orig":
             for bn in brains:
-                base = bn.getURL()                
+                base = bn.getURL()
+                try:
+                    link2 = bn.linkurl
+                except:
+                    link2 = ""
+                if link2 != "": base = link2                
                 items['titl'].append(bn.Title)
                 dsp = self.splittxt(bn.Description, tab)
                 items['txt'].append(dsp)
@@ -260,6 +266,11 @@ class barsview(baseview):
         else:            
             for bn in brains:
                 base = bn.getURL()
+                try:
+                    link2 = bn.linkurl
+                except:
+                    link2 = ""
+                if link2 != "": base = link2                
                 items['titl'].append(bn.Title)
                 dsp = self.splittxt(bn.Description, tab)
                 items['txt'].append(dsp)
