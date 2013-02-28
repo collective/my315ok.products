@@ -19,15 +19,10 @@
 <metal:main fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core"
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;plone_state context/@@plone_portal_state;
-                                                                              portal python:plone_state.portal()">
-		
+                                                                              portal python:plone_state.portal()">		
 	 
-        <div id="multiproducts" tal:content="structure python:view.outtable()">
-          
-
-		 </div><!--end of multiproducts -->
-
-		
+        <div id="multiproducts" tal:content="structure python:view.outtable()">         
+		 </div><!--end of multiproducts -->		
     </tal:main-macro>
 </metal:main>
 <metal:js fill-slot="javascript_bottom_slot">

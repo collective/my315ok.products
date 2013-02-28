@@ -12,12 +12,11 @@
             tal:attributes="href string:${navroot}/++resource++my315ok.products/multiproducts.css"
             />
     </metal:block>
-</head>      
+</head>
+      
 <body>
-
 <metal:main fill-slot="content-core">
-    <tal:main-macro metal:define-macro="content-core">
-   	
+    <tal:main-macro metal:define-macro="content-core">   	
        <div class="prducts">
 		     <div class="mainphoto newsImageContainer"
              tal:condition="python:view.isImageAvalable()">
