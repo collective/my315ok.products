@@ -44,6 +44,7 @@ class baseview(grok.View):
         catalog = getToolByName(context, 'portal_catalog')
         sepath= '/'.join(self.context.getPhysicalPath()) 
         query = {'object_provides': Iproduct.__identifier__,
+                 'review_status':'published',
                  'sort_on':'getObjPositionInParent',
                  'sort_order':'forward',
                  'path':sepath,
